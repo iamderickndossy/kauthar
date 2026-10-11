@@ -1,0 +1,462 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>For Kauthar | A Special Birthday</title> 
+<meta name="theme-color" content="#101722"> 
+<meta name="description" 
+content="A special birthday tribute to Kauthar."> 
+<style> 
+:root { --background: #101722; --panel: #192331; --gold: #d8bb82; --white: #f8f5ef; --muted: #b6bfca; --blue: #70c7e8; 
+} 
+* { 
+box-sizing: border-box; 
+} 
+html { 
+scroll-behaviour: smooth; 
+} 
+body { 
+margin: 0; 
+background: var(--background); 
+color: var(--white); 
+font-family: Georgia, "Times New Roman", serif; 
+line-height: 1.7; 
+} 
+.page { 
+width: min(100% - 32px, 1000px); 
+margin: auto; 
+} 
+.topline { 
+padding: 25px 0; 
+display: flex; 
+justify-content: space-between; 
+gap: 12px; 
+border-bottom: 1px solid #ffffff20; 
+font-family: Arial, sans-serif; 
+font-size: 0.7rem; 
+letter-spacing: 2px; 
+      text-transform: uppercase; 
+      color: var(--gold); 
+    } 
+ 
+    .hero { 
+      min-height: 75vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
+      padding: 75px 12px; 
+      position: relative; 
+      overflow: hidden; 
+    } 
+ 
+    .hero::before { 
+      content: ""; 
+      position: absolute; 
+      width: 330px; 
+      height: 330px; 
+      border: 1px solid #70c7e820; 
+      border-radius: 50%; 
+      box-shadow: 
+        0 0 0 35px #70c7e808, 
+        0 0 0 75px #70c7e805; 
+pointer-events: none; 
+} 
+.eyebrow { 
+position: relative; 
+color: var(--gold); 
+font-family: Arial, sans-serif; 
+font-size: 0.72rem; 
+letter-spacing: 4px; 
+text-transform: uppercase; 
+} 
+h1 { 
+position: relative; 
+margin: 22px 0; 
+font-size: clamp(3.3rem, 10vw, 7rem); 
+line-height: 1.03; 
+font-weight: normal; 
+letter-spacing: -3px; 
+} 
+h1 span { 
+display: block; 
+color: var(--gold); 
+font-style: italic; 
+} 
+.hero-description { 
+position: relative; 
+max-width: 490px; 
+color: var(--muted); 
+font-size: 1.05rem; 
+} 
+.button { 
+position: relative; 
+display: inline-block; 
+margin-top: 22px; 
+padding: 13px 25px; 
+border: 1px solid var(--gold); 
+color: var(--gold); 
+text-decoration: none; 
+font-family: Arial, sans-serif; 
+font-size: 0.75rem; 
+letter-spacing: 2px; 
+text-transform: uppercase; 
+transition: 0.25s; 
+} 
+.button:hover { 
+background: var(--gold); 
+color: var(--background); 
+} 
+.section { 
+padding: 65px 0; 
+} 
+.section-heading { 
+margin-bottom: 30px; 
+} 
+.section-heading small { 
+color: var(--blue); 
+font-family: Arial, sans-serif; 
+letter-spacing: 3px; 
+text-transform: uppercase; 
+} 
+h2 { 
+margin: 8px 0; 
+font-size: clamp(2rem, 5vw, 3.3rem); 
+font-weight: normal; 
+line-height: 1.2; 
+} 
+.section-intro { 
+color: var(--muted); 
+max-width: 540px; 
+} 
+.gallery { 
+display: grid; 
+grid-template-columns: repeat(6, 1fr); 
+gap: 16px; 
+} 
+.photo { 
+grid-column: span 3; 
+margin: 0; 
+background: var(--panel); 
+overflow: hidden; 
+border: 1px solid #ffffff12; 
+} 
+.photo:first-child { 
+grid-column: span 6; 
+} 
+.photo img { 
+display: block; 
+width: 100%; 
+height: 310px; 
+object-fit: cover; 
+transition: transform 0.5s; 
+} 
+.photo:first-child img { 
+height: clamp(300px, 55vw, 540px); 
+} 
+.photo:hover img { 
+transform: scale(1.025); 
+} 
+.photo figcaption { 
+padding: 13px 16px; 
+color: var(--gold); 
+font-size: 0.95rem; 
+} 
+.letter { 
+background: var(--panel); 
+border: 1px solid #d8bb8230; 
+padding: clamp(24px, 6vw, 55px); 
+position: relative; 
+} 
+.letter-mark { 
+color: var(--gold); 
+font-size: 3rem; 
+line-height: 1; 
+} 
+.letter p { 
+color: #e0e4e9; 
+font-size: 1.05rem; 
+} 
+.signature { 
+margin-top: 28px; 
+color: var(--gold); 
+font-style: italic; 
+font-size: 1.4rem; 
+} 
+.engineering { 
+display: grid; 
+grid-template-columns: repeat(3, 1fr); 
+gap: 12px; 
+margin-top: 28px; 
+} 
+.trait { 
+border-top: 1px solid var(--gold); 
+padding: 17px 10px; 
+} 
+.trait strong { 
+display: block; 
+color: var(--gold); 
+font-size: 1.05rem; 
+} 
+.trait span { 
+display: block; 
+margin-top: 5px; 
+color: var(--muted); 
+font-family: Arial, sans-serif; 
+font-size: 0.78rem; 
+} 
+.closing { 
+padding: 85px 10px; 
+text-align: center; 
+} 
+.closing h2 { 
+font-size: clamp(2.3rem, 7vw, 4.5rem); 
+} 
+.closing p { 
+      color: var(--muted); 
+    } 
+ 
+    footer { 
+      border-top: 1px solid #ffffff20; 
+      padding: 24px 0; 
+      display: flex; 
+      justify-content: space-between; 
+      gap: 12px; 
+      color: var(--muted); 
+      font-family: Arial, sans-serif; 
+      font-size: 0.72rem; 
+    } 
+ 
+    @media (max-width: 540px) { 
+      .topline { 
+        font-size: 0.58rem; 
+        letter-spacing: 1px; 
+      } 
+ 
+      .hero { 
+        min-height: 68vh; 
+      } 
+ 
+      .gallery { 
+        grid-template-columns: 1fr; 
+      } 
+ 
+      .photo, 
+      .photo:first-child { 
+        grid-column: span 1; 
+      } 
+ 
+      .photo img, 
+      .photo:first-child img { 
+        height: 350px; 
+      } 
+ 
+      .engineering { 
+        grid-template-columns: 1fr; 
+      } 
+ 
+      footer { 
+        flex-direction: column; 
+      } 
+    } 
+ 
+    @media (prefers-reduced-motion: reduce) { 
+      *, 
+      *::before, 
+      *::after { 
+        scroll-behaviour: auto !important; 
+        transition: none !important; 
+      } 
+    } 
+  </style> 
+</head> 
+ 
+<body> 
+  <div class="page"> 
+ 
+    <header class="topline"> 
+      <span>A special edition</span> 
+      <span>11 October · Her day</span> 
+    </header> 
+ 
+    <main> 
+ 
+      <section class="hero"> 
+        <div class="eyebrow">Celebrating a remarkable woman</div> 
+ 
+        <h1> 
+          Happy Birthday, 
+          <span>Kauthar.</span> 
+        </h1> 
+ 
+        <p class="hero-description"> 
+          A brilliant mind. A powerful presence. 
+          A woman with her own standards, her own 
+          ambitions, and a future worth celebrating. 
+        </p> 
+ 
+        <a class="button" href="#memories"> 
+          Enter your birthday tribute ↓ 
+        </a> 
+      </section> 
+ 
+      <section class="section" id="memories"> 
+        <div class="section-heading"> 
+          <small>01 / The woman herself</small> 
+          <h2>Unapologetically you.</h2> 
+          <p class="section-intro"> 
+            Some people have a presence that speaks 
+            before they even say a word. These are 
+            a few moments worth keeping. 
+          </p> 
+        </div> 
+ 
+        <div class="gallery"> 
+ 
+          <figure class="photo"> 
+            <img src="kauthar-1.jpg" 
+                 alt="Kauthar, looking beautiful"> 
+            <figcaption>The main character.</figcaption> 
+          </figure> 
+ 
+          <figure class="photo"> 
+            <img src="kauthar-2.jpg" 
+                 alt="A special photograph of Kauthar"> 
+            <figcaption>Elegance without trying.</figcaption> 
+          </figure> 
+ 
+          <figure class="photo"> 
+            <img src="kauthar-3.jpg" 
+                 alt="Another lovely moment of Kauthar"> 
+            <figcaption>Confidence looks good on you.</figcaption> 
+          </figure> 
+ 
+          <figure class="photo"> 
+            <img src="kauthar-4.jpg" 
+                 alt="A memorable photograph of Kauthar"> 
+            <figcaption>One of a kind.</figcaption> 
+          </figure> 
+ 
+          <figure class="photo"> 
+            <img src="kauthar-5.jpg" 
+                 alt="One more birthday memory"> 
+            <figcaption>And still unforgettable.</figcaption> 
+          </figure> 
+ 
+        </div> 
+      </section> 
+ 
+      <section class="section"> 
+        <div class="section-heading"> 
+          <small>02 / The engineer</small> 
+          <h2>A mind built for more.</h2> 
+        </div> 
+ 
+        <p class="section-intro"> 
+          Electrical engineering is about understanding 
+          systems, solving difficult problems and making 
+          things work. You have a journey of your own 
+          ahead of you, and I hope you keep pursuing it 
+          with courage, discipline and ambition. 
+        </p> 
+ 
+        <div class="engineering"> 
+          <div class="trait"> 
+            <strong>01 / Intelligence</strong> 
+            <span>A mind that keeps learning.</span> 
+          </div> 
+ 
+          <div class="trait"> 
+            <strong>02 / Ambition</strong> 
+            <span>A future worth working for.</span> 
+          </div> 
+ 
+          <div class="trait"> 
+            <strong>03 / Character</strong> 
+            <span>Standards that mean something.</span> 
+          </div> 
+        </div> 
+      </section> 
+ 
+      <section class="section"> 
+        <div class="section-heading"> 
+          <small>03 / A personal note</small> 
+          <h2>A few words for you.</h2> 
+        </div> 
+ 
+        <div class="letter"> 
+          <div class="letter-mark">“</div> 
+ 
+          <p>Dear Kauthar,</p> 
+ 
+          <p> 
+            Happy birthday to you. 
+          </p> 
+ 
+          <p> 
+            I hope this new chapter brings you closer 
+            to the woman you want to become. May you 
+            grow in wisdom, excel in your studies, 
+            find opportunities that challenge you, 
+            and build a future that makes you proud. 
+          </p> 
+ 
+          <p> 
+            Never feel that you have to become smaller 
+            to make your ambitions fit someone else's 
+            expectations. Keep your standards, keep 
+            your curiosity, and keep working towards 
+            what matters to you. 
+          </p> 
+ 
+          <p> 
+            Above all, may God guide your steps, 
+            protect you and bless the work of your hands. 
+          </p> 
+ 
+          <p> 
+            I am glad our paths crossed, and I hope 
+            today gives you plenty of reasons to smile. 
+            You deserve a beautiful birthday. 
+          </p> 
+ 
+          <p class="signature"> 
+            With warm wishes, from me to you. 
+          </p> 
+        </div> 
+      </section> 
+ 
+      <section class="closing"> 
+        <div class="eyebrow">A new chapter begins</div> 
+ 
+        <h2>Keep shining, Kauthar.</h2> 
+ 
+        <p> 
+          May your dreams be bold, your faith be strong, 
+          and your future brighter than you imagine. 
+        </p> 
+ 
+        <p style="color: var(--gold);"> 
+          Happy Birthday. ✦ 
+        </p> 
+      </section> 
+ 
+    </main> 
+ 
+    <footer> 
+      <span>Made especially for Kauthar.</span> 
+      <span>One woman. Endless possibilities.</span> 
+    </footer> 
+</div> 
+<script> 
+// Hide a photo card if its image has not been added. 
+document.querySelectorAll(".photo img").forEach(function (photo) { 
+photo.addEventListener("error", function () { 
+photo.parentElement.style.display = "none"; 
+}); 
+}); 
+</script> 
+</body> 
+</html> 
