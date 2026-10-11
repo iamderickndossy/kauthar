@@ -1,1 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10121d">
+  <meta name="description" content="A birthday tribute celebrating Kauthar, her ambition, her effort, and the blessing she has been in my life.">
+  <title>For Kauthar — With All My Heart</title>
+  <style>
+    :root {
+      --night: #10121d;
+      --night-soft: #191b29;
+      --cream: #fff8ed;
+      --muted: #c5c2c9;
+      --gold: #e8c58c;
+      --rose: #d98c92;
+      --rose-dark: #a95f70;
+      --line: rgba(232, 197, 140, .32);
+      --ink: #242332;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .wrap { width: min(1080px, 90%); margin: 0 auto; }
+    .eyebrow {
+      margin: 0;
+      color: var(--gold);
+      font: 700 11px/1.8 Arial, sans-serif;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .script { font-style: italic; color: var(--rose); }
+    .section { padding: 88px 0; }
+    .section-heading {
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.18;
+      font-weight: 400;
+      margin: 12px 0 18px;
+    }
+    .intro {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .center { text-align: center; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 22px 0;
+    }
+    .brand { color: var(--gold); font-size: 23px; font-style: italic; }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 20px; color: #ddd5d3; font: 12px Arial, sans-serif; }
+    .navlinks a { position: relative; transition: color .25s ease; }
+    .navlinks a::after {
+      content: ""; position: absolute; left: 0; bottom: -5px; height: 1px; width: 0;
+      background: linear-gradient(90deg, var(--gold), var(--rose));
+      transition: width .35s cubic-bezier(.2,.7,.4,1);
+    }
+    .navlinks a:hover { color: var(--gold); }
+    .navlinks a:hover::after { width: 100%; }
 
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: grid;
+      align-items: center;
+      padding: 55px 0 90px;
+      background:
+        radial-gradient(ellipse at 76% 28%, rgba(169,95,112,.23), transparent 36%),
+        radial-gradient(ellipse at 12% 70%, rgba(232,197,140,.11), transparent 32%),
+        linear-gradient(140deg, #171725, #10121d 70%);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 50px; position: relative; z-index: 2; }
+    .hero h1 {
+      margin: 18px 0;
+      font-size: clamp(54px, 8vw, 94px);
+      line-height: .98;
+      letter-spacing: -2px;
+      font-weight: 400;
+    }
+    .hero h1 span {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(100deg, #e8c58c 0%, #fff8ed 22%, #d98c92 45%, #e8c58c 68%, #fff8ed 88%, #e8c58c 100%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 8s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: -250% 50%; }
+    }
+    .hero-copy { color: #d7d1d5; max-width: 560px; font-size: 17px; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
+
+    .button {
+      position: relative; overflow: hidden;
+      display: inline-flex; justify-content: center; align-items: center; gap: 9px;
+      min-height: 46px; padding: 12px 20px; border: 1px solid var(--gold);
+      border-radius: 4px; background: var(--gold); color: #171522;
+      cursor: pointer; font: 700 11px Arial, sans-serif; letter-spacing: 1px;
+      transition: transform .2s, background .2s, color .2s, box-shadow .3s;
+    }
+    .button::after {
+      content: ""; position: absolute; top: 0; left: -130%; width: 55%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.6), transparent);
+      transform: skewX(-20deg); transition: left .65s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: transparent; color: var(--gold); box-shadow: 0 10px 30px rgba(232,197,140,.18); }
+    .button:hover::after { left: 140%; }
+    .button.secondary { background: transparent; color: var(--cream); border-color: rgba(255,255,255,.35); }
+    .button.secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-art { min-height: 380px; display: grid; place-items: center; position: relative; }
+    .orbit {
+      width: min(330px, 75vw); aspect-ratio: 1; border: 1px solid var(--line);
+      border-radius: 50%; display: grid; place-items: center; position: relative;
+      box-shadow: 0 0 80px rgba(217,140,146,.09), inset 0 0 60px rgba(232,197,140,.04);
+      animation: floaty 7s ease-in-out infinite;
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .orbit::before, .orbit::after { content: "✦"; position: absolute; color: var(--gold); font-size: 20px; }
+    .orbit::before { top: 14%; right: 13%; animation: twinkle 3.5s ease-in-out infinite; }
+    .orbit::after { bottom: 17%; left: 10%; color: var(--rose); animation: twinkle 4.2s ease-in-out infinite .8s; }
+    .heart-mark {
+      width: 155px; height: 155px; display: grid; place-items: center;
+      border-radius: 50%; background: linear-gradient(145deg, #d99ba0, #9d596e);
+      color: #fff6eb; font-size: 63px;
+      box-shadow: 0 20px 70px rgba(217,140,146,.22);
+      animation: heartbeat 2.8s ease-in-out infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      18% { transform: scale(1.09); }
+      32% { transform: scale(.98); }
+      48% { transform: scale(1.05); }
+      62% { transform: scale(1); }
+    }
+    .orbit-caption {
+      position: absolute; bottom: 8%; left: 50%; transform: translateX(-50%);
+      width: 100%; text-align: center; color: var(--gold);
+      font-size: 15px; font-style: italic;
+    }
+
+    /* twinkling sparkles inside the hero */
+    .sparkle {
+      position: absolute; z-index: 1;
+      width: var(--size, 3px); height: var(--size, 3px);
+      border-radius: 50%; background: var(--gold); opacity: 0;
+      box-shadow: 0 0 9px rgba(232,197,140,.9);
+      animation: twinkle var(--dur, 4s) ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(.35); }
+      50% { opacity: .95; transform: scale(1.25); }
+    }
+
+    .strip {
+      text-align: center; padding: 17px 12px; border-bottom: 1px solid var(--line);
+      color: var(--gold); font: 11px Arial, sans-serif; letter-spacing: 2px;
+      background: linear-gradient(90deg, transparent, rgba(232,197,140,.09), transparent);
+      background-size: 220% 100%;
+      animation: stripGlow 9s linear infinite;
+    }
+    @keyframes stripGlow {
+      0% { background-position: 120% 0; }
+      100% { background-position: -120% 0; }
+    }
+
+    /* ---------- TRIBUTE ---------- */
+    .tribute { background: var(--cream); color: var(--ink); }
+    .tribute .intro { color: #66606a; }
+    .tribute-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 42px; }
+    .tribute-card {
+      border: 1px solid #e5d6c4; border-radius: 8px; padding: 25px;
+      background: rgba(255,255,255,.48);
+      transition: transform .35s cubic-bezier(.2,.7,.4,1), box-shadow .35s ease, border-color .35s ease, background .35s ease;
+    }
+    .tribute-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--rose);
+      background: #fffdfa;
+      box-shadow: 0 20px 45px rgba(169,95,112,.16);
+    }
+    .tribute-card .icon { font-size: 26px; color: var(--rose-dark); display: inline-block; transition: transform .35s ease; }
+    .tribute-card:hover .icon { transform: scale(1.2) rotate(-8deg); }
+    .tribute-card h3 { font-size: 22px; line-height: 1.3; font-weight: 400; margin: 13px 0 10px; }
+    .tribute-card p { margin: 0; color: #5e5965; font-size: 14px; }
+
+    /* ---------- LETTER ---------- */
+    .letter-section { background: radial-gradient(ellipse at 50% 10%, #252235, var(--night) 65%); }
+    .letter-panel {
+      max-width: 790px; margin: 38px auto 0; padding: clamp(25px, 6vw, 58px);
+      border: 1px solid var(--line); border-radius: 10px;
+      background: rgba(13,15,25,.75); box-shadow: 0 22px 70px rgba(0,0,0,.2);
+      transition: box-shadow .5s ease, border-color .5s ease;
+    }
+    .letter-panel:hover { border-color: rgba(232,197,140,.6); box-shadow: 0 25px 80px rgba(169,95,112,.18); }
+    .letter-panel p { color: #e2dce0; font-size: 16px; margin: 0 0 19px; }
+    .letter-panel .salutation { color: var(--gold); font-size: 24px; font-style: italic; }
+    .signature { color: var(--rose); font-size: 28px; font-style: italic; margin-top: 28px; }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-section { background: linear-gradient(180deg, #f7efe4, #fff9f0); color: var(--ink); }
+    .gallery-section .intro { color: #68616a; }
+    .gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 42px; }
+    .memory-card {
+      padding: 9px 9px 14px; background: #fffdf8; border: 1px solid #e4d6c7;
+      box-shadow: 0 8px 22px rgba(42,29,27,.08); transform: rotate(var(--tilt, -1deg));
+      transition: transform .3s cubic-bezier(.2,.7,.4,1), box-shadow .3s ease; text-align: left;
+    }
+    .memory-card:nth-child(even) { --tilt: 1.2deg; }
+    .memory-card:hover, .memory-card:focus-within {
+      transform: translateY(-8px) rotate(0); box-shadow: 0 16px 32px rgba(42,29,27,.16);
+    }
+    .memory-open {
+      display: block; width: 100%; border: 0; background: transparent; padding: 0;
+      cursor: pointer; color: inherit; text-align: left;
+    }
+    .memory-card img {
+      display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover;
+      background: #ded4c9; color: #514957; font: 12px Arial, sans-serif;
+      transition: filter .4s ease;
+    }
+    .memory-card:hover img { filter: saturate(1.08) contrast(1.03); }
+    .memory-title { display: block; font-size: 16px; line-height: 1.3; margin: 12px 3px 4px; }
+    .memory-hint { display: block; margin: 0 3px; color: #8a6470; font: 10px Arial, sans-serif; letter-spacing: .5px; }
+    .memory-detail {
+      display: none; margin: 10px 3px 0; padding-top: 10px; border-top: 1px solid #ead9ca;
+      color: #5f5660; font-size: 12px; line-height: 1.55;
+    }
+    .memory-card.expanded .memory-detail { display: block; animation: fadeIn .25s ease; }
+
+    /* ---------- CLOSING ---------- */
+    .closing {
+      text-align: center; padding: 85px 0;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(169,95,112,.2), transparent 50%),
+        #11121c;
+    }
+    .closing-line {
+      width: 110px; height: 1px; margin: 25px auto;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      background-size: 200% 100%;
+      animation: lineSweep 4s linear infinite;
+    }
+    @keyframes lineSweep {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    /* ---------- MUSIC BUTTON ---------- */
+    .music-control {
+      position: fixed; right: 18px; bottom: 18px; z-index: 20;
+      border: 1px solid var(--line); background: rgba(16,18,29,.94);
+      color: var(--cream); border-radius: 30px; padding: 10px 15px;
+      cursor: pointer; box-shadow: 0 8px 28px #0004; font: 12px Arial, sans-serif;
+      transition: border-color .3s ease, transform .2s ease;
+    }
+    .music-control:hover { transform: translateY(-2px); border-color: var(--gold); }
+    .music-control span { color: var(--gold); margin-right: 6px; }
+    .music-control.playing { border-color: var(--rose); animation: pulseRing 2.2s ease-out infinite; }
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(217,140,146,.45); }
+      70% { box-shadow: 0 0 0 16px rgba(217,140,146,0); }
+      100% { box-shadow: 0 0 0 0 rgba(217,140,146,0); }
+    }
+
+    footer { padding: 24px 15px; text-align: center; color: #aaa4b1; font: 11px/1.8 Arial, sans-serif; border-top: 1px solid var(--line); }
+
+    /* ---------- MODAL ---------- */
+    .modal {
+      display: none; position: fixed; inset: 0; z-index: 50; padding: 20px;
+      align-items: center; justify-content: center; background: rgba(5,6,12,.9);
+      backdrop-filter: blur(3px);
+    }
+    .modal.open { display: flex; animation: fadeIn .2s ease; }
+    .modal-box {
+      width: min(600px, 100%); max-height: 88vh; overflow-y: auto;
+      padding: 22px; background: var(--cream); color: var(--ink); border-radius: 8px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.5);
+    }
+    .modal-box img { display: block; max-height: 48vh; width: 100%; object-fit: contain; background: #e8dfd6; }
+    .modal-box h3 { margin: 18px 0 6px; font-size: 28px; font-weight: 400; }
+    .modal-box p { color: #5f5964; margin: 0 0 18px; }
+    .close-modal { float: right; border: 1px solid #d7c6b4; background: transparent; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; transition: background .25s, transform .25s; }
+    .close-modal:hover { background: #f0e2d2; transform: rotate(90deg); }
+
+    /* ---------- FLYING HEARTS ---------- */
+    .hearts-layer {
+      position: fixed; inset: 0; z-index: 45;
+      pointer-events: none; overflow: hidden;
+    }
+    .flying-heart {
+      position: absolute; bottom: -70px;
+      font-size: var(--size, 18px); line-height: 1;
+      opacity: 0; will-change: transform, opacity;
+      filter: drop-shadow(0 0 7px rgba(232,197,140,.35));
+      animation: flyUp var(--dur, 10s) linear both;
+      user-select: none;
+    }
+    @keyframes flyUp {
+      0%   { opacity: 0; transform: translate3d(0, 0, 0) scale(.5) rotate(0deg); }
+      10%  { opacity: var(--peak, .8); }
+      50%  { opacity: var(--peak, .8); transform: translate3d(var(--sway, 0px), calc(var(--dy, -100vh) * .55), 0) scale(1) rotate(calc(var(--spin, 90deg) * .5)); }
+      85%  { opacity: var(--peak, .8); }
+      100% { opacity: 0; transform: translate3d(calc(var(--sway, 0px) * -.8), var(--dy, -100vh), 0) scale(1.12) rotate(var(--spin, 90deg)); }
+    }
+    .burst-heart {
+      position: fixed;
+      font-size: var(--size, 16px); line-height: 1;
+      opacity: 1; will-change: transform, opacity;
+      filter: drop-shadow(0 0 7px rgba(217,140,146,.45));
+      animation: burstOut var(--dur, 1s) cubic-bezier(.2,.7,.4,1) both;
+      user-select: none;
+    }
+    @keyframes burstOut {
+      0%   { opacity: 1; transform: translate(-50%, -50%) scale(.35) rotate(0deg); }
+      25%  { opacity: 1; }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -80px))) scale(var(--scale, 1)) rotate(var(--spin, 120deg)); }
+    }
+
+    /* ---------- SCROLL REVEAL ---------- */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity .85s ease, transform .85s cubic-bezier(.2,.7,.4,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 820px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 18px; }
+      .hero-copy { margin-left: auto; margin-right: auto; }
+      .actions { justify-content: center; }
+      .hero-art { min-height: 290px; }
+      .orbit { width: 250px; }
+      .heart-mark { width: 120px; height: 120px; font-size: 48px; }
+      .tribute-grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .memory-card:last-child { grid-column: 1 / -1; width: min(60%, 260px); justify-self: center; }
+    }
+    @media (max-width: 480px) {
+      .topbar { align-items: flex-start; }
+      .navlinks { gap: 10px; justify-content: flex-end; font-size: 10px; }
+      .hero { min-height: auto; padding: 55px 0 65px; }
+      .section { padding: 65px 0; }
+      .gallery { gap: 11px; }
+      .memory-card { padding: 7px 7px 11px; }
+      .memory-title { font-size: 14px; }
+      .memory-hint { font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .hearts-layer { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#home">Kauthar ♡</a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#tribute">Her journey</a>
+      <a href="#memories">Memories</a>
+      <a href="#letter">My letter</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">11 October · Today is yours</p>
+          <h1>Happy birthday,<span>Kauthar.</span></h1>
+          <p class="hero-copy">
+            Today is about celebrating you: your determination, the effort you put into your dreams,
+            the woman you are becoming, and all the good you bring into the lives around you.
+          </p>
+          <p class="hero-copy">
+            Meeting you has been a blessing in my life. I hope this little page reminds you how deeply
+            you are appreciated, how much I believe in your potential, and how sincerely I love you.
+          </p>
+          <div class="actions">
+            <a class="button" href="#letter">READ MY LETTER ♡</a>
+            <a class="button secondary" href="#memories">MOMENTS</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Decorative heart">
+          <div class="orbit">
+            <div class="heart-mark" aria-hidden="true">♡</div>
+            <div class="orbit-caption">For the woman with beautiful dreams</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="strip">YOUR EFFORT MATTERS · YOUR DREAMS MATTER · YOU MATTER</div>
+
+    <section class="section tribute" id="tribute">
+      <div class="wrap center">
+        <p class="eyebrow reveal">A celebration of you</p>
+        <h2 class="section-heading reveal" style="transition-delay:.08s">Look how far you are <span class="script">becoming.</span></h2>
+        <p class="intro reveal" style="transition-delay:.16s">
+          This is not only a celebration of another birthday. It is a celebration of your effort,
+          your growth, your courage to keep learning, and the future you are working towards. My beautiful Love.
+        </p>
+        <div class="tribute-grid reveal" style="transition-delay:.24s">
+          <article class="tribute-card">
+            <div class="icon" aria-hidden="true">😊</div>
+            <h3>Your determination</h3>
+            <p>
+              Every step you take towards your goals counts, including the quiet work that other
+              people may never see. I hope you give yourself credit for how much effort it takes
+              to keep moving forward.
+            </p>
+          </article>
+          <article class="tribute-card">
+            <div class="icon" aria-hidden="true">😎</div>
+            <h3>Your brilliant potential</h3>
+            <p>
+              You are building knowledge, skills and a future of your own. Keep asking questions,
+              keep learning, and keep trusting that consistent effort can take you further than
+              you can see today.
+            </p>
+          </article>
+          <article class="tribute-card">
+            <div class="icon" aria-hidden="true">❤️</div>
+            <h3>The woman you are</h3>
+            <p>
+              I admire that you have your own mind, your own ambitions and your own way of seeing
+              the world. I hope you never feel you have to become less of yourself to be valued.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section letter-section" id="letter">
+      <div class="wrap center">
+        <p class="eyebrow reveal">From my heart to yours</p>
+        <h2 class="section-heading reveal" style="transition-delay:.08s">My letter for you <span class="script">Kauthar.</span></h2>
+        <p class="intro reveal" style="transition-delay:.16s">For the birthday girl, and for the person behind all the dreams.</p>
+        <article class="letter-panel reveal" style="text-align:left; transition-delay:.24s">
+          <p class="salutation">Dear Kauthar,</p>
+          <p>
+            Happy birthday, beautiful. Today, the focus is on you — the person you are and the life
+            you are working so hard to build.
+          </p>
+          <p>
+            I hope you are proud of yourself. Proud of the effort you put in, the things you are
+            learning, the challenges you keep facing, and the progress you make even when it feels
+            slow. Not every achievement arrives with applause. Some of the most important victories
+            are the quiet decisions to keep trying. I love you and I believe in you.
+          </p>
+          <p>
+            Ni kurasa mpya inaanza kuandikwa. Babe usisahau, you are the author of your story — go
+            write ahead whatever it is you wish to accomplish and experience. I will be there,
+            someway or another.
+          </p>
+          <p>
+            Meeting you has been a blessing to me. I am genuinely grateful that our paths crossed
+            and that I have had the chance to get to know you. You have become someone special in
+            my life, and I do not take that for granted.
+          </p>
+          <p>
+            For your new year of life, I wish you peace in your heart, good health, wisdom and
+            beautiful opportunities. Remember, my dearest: LOVE NEVER ENDS.
+          </p>
+          <p>
+            Today is yours, Kauthar. Enjoy it, smile freely, and let yourself be celebrated.
+            I hope this year brings you closer to the life you want and gives you many new
+            reasons to believe in yourself.
+          </p>
+          <p>Happy birthday. Thank you for being you, and for being such a blessing in my life.</p>
+          <div class="signature">With all my heart,<br>Derick ♡</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="memories">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Five little windows into your world</p>
+        <h2 class="section-heading reveal" style="transition-delay:.08s">You, in every <span class="script">light.</span></h2>
+        <p class="intro reveal" style="transition-delay:.16s"></p>
+
+        <div class="gallery reveal" style="transition-delay:.24s">
+          <article class="memory-card">
+            <button class="memory-open" type="button" data-index="0" aria-expanded="false">
+              <img src="kauthar-1.jpg" alt="Kauthar photograph one" loading="lazy">
+              <span class="memory-title">Your beautiful smile</span>
+              <span class="memory-hint">OPEN ↗</span>
+            </button>
+            <p class="memory-detail">A little reminder that your smile deserves to be celebrated. A contagious smile that lights up any room.</p>
+          </article>
+          <article class="memory-card">
+            <button class="memory-open" type="button" data-index="1" aria-expanded="false">
+              <img src="kauthar-2.jpg" alt="Kauthar photograph two" loading="lazy">
+              <span class="memory-title">Your ambition</span>
+              <span class="memory-hint">OPEN ↗</span>
+            </button>
+            <p class="memory-detail">For the dreams you are working towards and the effort you put into becoming the woman you want to be.</p>
+          </article>
+          <article class="memory-card">
+            <button class="memory-open" type="button" data-index="2" aria-expanded="false">
+              <img src="kauthar-3.jpg" alt="Kauthar photograph three" loading="lazy">
+              <span class="memory-title">Your elegance</span>
+              <span class="memory-hint">OPEN ↗</span>
+            </button>
+            <p class="memory-detail">Elegance is the only beauty that never fades, my beautiful angel, your highness!</p>
+          </article>
+          <article class="memory-card">
+            <button class="memory-open" type="button" data-index="3" aria-expanded="false">
+              <img src="kauthar-4.jpg" alt="Kauthar photograph four" loading="lazy">
+              <span class="memory-title">Your individuality</span>
+              <span class="memory-hint">OPEN ↗</span>
+            </button>
+            <p class="memory-detail">I appreciate getting to know your thoughts, your perspective and all the little things that make you My pookie 😉.</p>
+          </article>
+          <article class="memory-card">
+            <button class="memory-open" type="button" data-index="4" aria-expanded="false">
+              <img src="kauthar-5.jpg" alt="Kauthar photograph five" loading="lazy">
+              <span class="memory-title">A blessing in my life</span>
+              <span class="memory-hint">OPEN ↗</span>
+            </button>
+            <p class="memory-detail">Of all the things this birthday celebrates, I am grateful that our paths crossed and that I get to know you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <p class="eyebrow reveal">A wish for your next chapter</p>
+        <h2 class="section-heading reveal" style="transition-delay:.08s">Keep becoming <span class="script">everything you dream of.</span></h2>
+        <div class="closing-line reveal" style="transition-delay:.14s"></div>
+        <p class="intro reveal" style="transition-delay:.2s">
+          My lover, I promise to always push you to be the best that you can be and never settle for ordinary.
+          Keep making memories for me to hear. Me and God have long talks recently and you are the main topic.
+          Enjoy your day, more reasons to be proud of yourself. And more beautiful memories ahead.
+        </p>
+        <p class="reveal" style="color:var(--gold); margin-top:28px; font-size:20px; font-style:italic; transition-delay:.28s">
+          Happy birthday, Kauthar. I love you. ♡
+        </p>
+        <p class="reveal" style="color:var(--muted); margin-top:8px; transition-delay:.34s">With affection and gratitude — Derick</p>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-control" id="music-toggle" type="button"
+          aria-pressed="false" aria-label="Play birthday background music">
+    <span id="music-icon">♫</span><span id="music-label">Play music</span>
+  </button>
+
+  <!-- Add your own licensed or permitted music file named birthday-music.mp3 beside this HTML file.
+       The music will not play until Kauthar presses the button. -->
+  <audio id="birthday-music" src="birthday-music.mp3" loop preload="none"></audio>
+
+  <!-- Flying hearts live here -->
+  <div class="hearts-layer" id="hearts-layer" aria-hidden="true"></div>
+
+  <div class="modal" id="memory-modal" role="dialog" aria-modal="true"
+       aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="close-modal" id="close-memory" type="button"
+              aria-label="Close memory">×</button>
+      <img id="modal-image" src="" alt="">
+      <h3 id="modal-title">A little memory</h3>
+      <p id="modal-text"></p>
+      <button class="button" id="modal-done" type="button">CLOSE MEMORY</button>
+    </div>
+  </div>
+
+  <footer>
+    MADE WITH LOVE, THOUGHT AND GRATITUDE · FOR KAUTHAR · 11 OCTOBER
+  </footer>
+
+  <script>
+    /* =========================================================
+       1. FLYING HEARTS  +  CLICK BURSTS  +  HERO SPARKLES
+       ========================================================= */
+    (function () {
+      const layer = document.getElementById("hearts-layer");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!layer || reduceMotion) return;
+
+      const GLYPHS = ["♡", "❤", "💗", "💖", "♥", "✨"];
+      const COLORS = ["#e8c58c", "#d98c92", "#fff8ed", "#f0a9b0", "#ffd7a1"];
+      const MAX_HEARTS = 75;
+
+      let alive = 0;
+      const rand = (min, max) => Math.random() * (max - min) + min;
+      const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+      function track(el) {
+        alive++;
+        el.addEventListener("animationend", () => {
+          el.remove();
+          alive--;
+        });
+      }
+
+      /* --- hearts that drift up from the bottom of the screen --- */
+      function spawnRisingHeart() {
+        if (alive >= MAX_HEARTS) return;
+        const el = document.createElement("span");
+        el.className = "flying-heart";
+        el.textContent = pick(GLYPHS);
+        el.style.left = rand(-2, 98).toFixed(2) + "vw";
+        el.style.setProperty("--size", rand(12, 30).toFixed(1) + "px");
+        el.style.setProperty("--sway", rand(-80, 80).toFixed(1) + "px");
+        el.style.setProperty("--dy", -(window.innerHeight + 180).toFixed(0) + "px");
+        el.style.setProperty("--spin", rand(-240, 240).toFixed(0) + "deg");
+        el.style.setProperty("--peak", rand(0.42, 0.95).toFixed(2));
+        el.style.setProperty("--dur", rand(8, 14).toFixed(1) + "s");
+        el.style.color = pick(COLORS);
+        track(el);
+        layer.appendChild(el);
+      }
+
+      /* --- a little burst of hearts wherever she taps --- */
+      function burstHearts(x, y, amount) {
+        const total = amount || 9;
+        for (let i = 0; i < total; i++) {
+          if (alive >= MAX_HEARTS + 45) return;
+          const el = document.createElement("span");
+          el.className = "burst-heart";
+          el.textContent = pick(GLYPHS);
+
+          const angle = (Math.PI * 2 * i) / total + rand(-0.25, 0.25);
+          const dist = rand(45, 145);
+
+          el.style.left = x + "px";
+          el.style.top = y + "px";
+          el.style.setProperty("--size", rand(12, 22).toFixed(1) + "px");
+          el.style.setProperty("--dx", (Math.cos(angle) * dist).toFixed(1) + "px");
+          el.style.setProperty("--dy", (Math.sin(angle) * dist - 55).toFixed(1) + "px");
+          el.style.setProperty("--spin", rand(-280, 280).toFixed(0) + "deg");
+          el.style.setProperty("--scale", rand(0.7, 1.6).toFixed(2));
+          el.style.setProperty("--dur", rand(0.85, 1.45).toFixed(2) + "s");
+          el.style.animationDelay = (i * 0.02).toFixed(2) + "s";
+          el.style.color = pick(COLORS);
+
+          track(el);
+          layer.appendChild(el);
+        }
+      }
+
+      /* gentle continuous stream */
+      setInterval(() => {
+        if (!document.hidden) spawnRisingHeart();
+      }, 1100);
+      for (let i = 0; i < 6; i++) setTimeout(spawnRisingHeart, i * 260);
+
+      /* burst on every tap / click */
+      document.addEventListener("pointerdown", (event) => {
+        if (event.button !== undefined && event.button !== 0) return;
+        burstHearts(event.clientX, event.clientY, 9);
+      }, { passive: true });
+
+      /* a small welcome celebration in the middle of the hero */
+      window.addEventListener("load", () => {
+        const hero = document.querySelector(".hero");
+        if (!hero) return;
+        const rect = hero.getBoundingClientRect();
+        setTimeout(() => {
+          burstHearts(rect.left + rect.width / 2, rect.top + rect.height / 2, 14);
+        }, 550);
+      });
+
+      /* --- twinkling sparkles in the hero sky --- */
+      const hero = document.querySelector(".hero");
+      if (hero) {
+        for (let i = 0; i < 24; i++) {
+          const s = document.createElement("span");
+          s.className = "sparkle";
+          s.style.left = rand(0, 100).toFixed(1) + "%";
+          s.style.top = rand(0, 100).toFixed(1) + "%";
+          s.style.setProperty("--size", rand(2, 4.5).toFixed(1) + "px");
+          s.style.setProperty("--dur", rand(2.5, 6.5).toFixed(1) + "s");
+          s.style.animationDelay = rand(0, 6).toFixed(1) + "s";
+          if (Math.random() > 0.7) s.style.background = "#d98c92";
+          hero.appendChild(s);
+        }
+      }
+    })();
+
+    /* =========================================================
+       2. SCROLL REVEAL
+       ========================================================= */
+    (function () {
+      const items = document.querySelectorAll(".reveal");
+      if (!items.length) return;
+
+      if (!("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+
+      items.forEach((el) => observer.observe(el));
+    })();
+
+    /* =========================================================
+       3. BACKGROUND MUSIC
+       ========================================================= */
+    const music = document.getElementById("birthday-music");
+    const musicToggle = document.getElementById("music-toggle");
+    const musicIcon = document.getElementById("music-icon");
+    const musicLabel = document.getElementById("music-label");
+
+    musicToggle.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicToggle.setAttribute("aria-pressed", "true");
+          musicToggle.setAttribute("aria-label", "Pause birthday background music");
+          musicToggle.classList.add("playing");
+          musicIcon.textContent = "Ⅱ";
+          musicLabel.textContent = "Pause music";
+        } catch (error) {
+          musicLabel.textContent = "Add birthday-music.mp3";
+          musicToggle.setAttribute("aria-pressed", "false");
+        }
+      } else {
+        music.pause();
+        musicToggle.setAttribute("aria-pressed", "false");
+        musicToggle.setAttribute("aria-label", "Play birthday background music");
+        musicToggle.classList.remove("playing");
+        musicIcon.textContent = "♫";
+        musicLabel.textContent = "Play music";
+      }
+    });
+
+    music.addEventListener("ended", () => {
+      musicToggle.setAttribute("aria-pressed", "false");
+      musicToggle.classList.remove("playing");
+      musicIcon.textContent = "♫";
+      musicLabel.textContent = "Play music";
+    });
+
+    /* =========================================================
+       4. MEMORY MODAL
+       ========================================================= */
+    const memories = [
+      {
+        title: "Your beautiful smile",
+        note: "A little reminder that your smile deserves to be celebrated. Add a specific memory here if one comes to mind."
+      },
+      {
+        title: "Your ambition",
+        note: "For the dreams you are working towards and the effort you put into becoming the woman you want to be."
+      },
+      {
+        title: "Your strength",
+        note: "You do not have to have everything figured out to be making progress. Keep going, one step at a time."
+      },
+      {
+        title: "Your individuality",
+        note: "I appreciate getting to know your thoughts, your perspective and all the little things that make you uniquely you."
+      },
+      {
+        title: "A blessing in my life",
+        note: "Of all the things this birthday celebrates, I am grateful that our paths crossed and that I get to know you."
+      }
+    ];
+
+    const memoryModal = document.getElementById("memory-modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalTitle = document.getElementById("modal-title");
+    const modalText = document.getElementById("modal-text");
+    const closeMemory = document.getElementById("close-memory");
+    const modalDone = document.getElementById("modal-done");
+    let lastMemoryButton = null;
+
+    document.querySelectorAll(".memory-open").forEach((button) => {
+      button.addEventListener("click", () => {
+        const index = Number(button.dataset.index);
+        const photo = button.querySelector("img");
+        lastMemoryButton = button;
+        modalImage.src = photo.src;
+        modalImage.alt = photo.alt;
+        modalTitle.textContent = memories[index].title;
+        modalText.textContent = memories[index].note;
+        memoryModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+        closeMemory.focus();
+      });
+    });
+
+    function closeMemoryModal() {
+      memoryModal.classList.remove("open");
+      document.body.style.overflow = "";
+      modalImage.src = "";
+      if (lastMemoryButton) lastMemoryButton.focus();
+    }
+
+    closeMemory.addEventListener("click", closeMemoryModal);
+    modalDone.addEventListener("click", closeMemoryModal);
+
+    memoryModal.addEventListener("click", (event) => {
+      if (event.target === memoryModal) closeMemoryModal();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && memoryModal.classList.contains("open")) {
+        closeMemoryModal();
+      }
+    });
+
+    /* small in-page expansion as well as the larger memory view */
+    document.querySelectorAll(".memory-card").forEach((card) => {
+      const button = card.querySelector(".memory-open");
+      button.addEventListener("contextmenu", (event) => event.preventDefault());
+    });
+  </script>
+</body>
+</html>
